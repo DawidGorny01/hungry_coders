@@ -97,3 +97,4 @@ def full_map_restaurant_customers(restaurants):
             return
     print("Klienci nie znalezieni.")
 
+
