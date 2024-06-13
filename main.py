@@ -23,6 +23,7 @@ if __name__ == '__main__':
 
             print("Nieprawidłowa nazwa użytkownika lub hasło. Spróbuj ponownie.")
 
+
     def restaurant_options(restaurants):
         while True:
             print("Opcje dla restauracji:")
@@ -54,6 +55,7 @@ if __name__ == '__main__':
             else:
                 print("Nieprawidłowa opcja. Spróbuj ponownie.")
 
+
     def employee_options(restaurants):
         while True:
             print("Opcje dla pracowników:")
@@ -83,6 +85,7 @@ if __name__ == '__main__':
                 break
             else:
                 print("Nieprawidłowa opcja. Spróbuj ponownie.")
+
 
     def customer_options(restaurants):
         while True:
@@ -133,5 +136,3 @@ if logged_user():
             break
         else:
             print("Nieprawidłowa opcja. Spróbuj ponownie.")
-
-

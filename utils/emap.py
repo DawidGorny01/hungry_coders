@@ -1,4 +1,6 @@
 import folium
+
+
 def map_restaurant(restaurants):
     restaurant_name = input("Wpisz nazwę resturacji: ")
     for restaurant in restaurants:
@@ -13,6 +15,7 @@ def map_restaurant(restaurants):
             return
     print(f"Restauracja {restaurant_name} nie została znaleziona.")
 
+
 def full_map_restaurants(restaurants):
     map = folium.Map(location=[52.2297, 21.0122], zoom_start=10)
 
@@ -26,6 +29,7 @@ def full_map_restaurants(restaurants):
     map.save('./Wszystkie restauracje.html')
     print("Plik HTML dla wszystkich restauracji został wygenerowany.")
 
+
 def map_employee(restaurants):
     worker_first_name = input("Wpisz imię pracownika: ")
     worker_last_name = input("Wpisz nazwisko pracownika: ")
@@ -37,12 +41,14 @@ def map_employee(restaurants):
                 longitude = restaurant['coordinates']['longitude']
                 restaurant_name = restaurant['name']
 
-                folium.Marker(location=[latitude, longitude], popup=f"{restaurant_name} {worker_first_name} {worker_last_name}").add_to(map)
+                folium.Marker(location=[latitude, longitude],
+                              popup=f"{restaurant_name} {worker_first_name} {worker_last_name}").add_to(map)
 
                 map.save(f'./{worker_first_name} {worker_last_name} {restaurant_name}.html')
                 print(f"Plik HTML dla {worker_first_name} {worker_last_name} został wygenerowany.")
                 return
     print(f"Pracownik restauracji nie został znaleziony.")
+
 
 def full_map_restaurant_employees(restaurants):
     restaurant_name = input("Wpisz nazwę restauracji: ")
@@ -55,12 +61,14 @@ def full_map_restaurant_employees(restaurants):
                 latitude = employee['coordinates']['latitude']
                 longitude = employee['coordinates']['longitude']
 
-                folium.Marker(location=[latitude, longitude], popup=f"{worker_first_name} {worker_last_name}").add_to(map)
+                folium.Marker(location=[latitude, longitude], popup=f"{worker_first_name} {worker_last_name}").add_to(
+                    map)
 
             map.save(f'./{restaurant_name} pracownicy.html')
             print(f"Plik HTML z mapą wszystkich pracowników dla restauracji {restaurant_name} został wygenerowany.")
             return
     print("Pracownicy nie znalezieni.")
+
 
 def map_customer(restaurants):
     customer_first_name = input("Wpisz imię klienta: ")
@@ -80,11 +88,13 @@ def map_customer(restaurants):
                 return
     print(f"Klient restauracji nie został znaleziony.")
 
+
 def full_map_restaurant_customers(restaurants):
     restaurant_name = input("Wpisz nazwę restauracji: ")
     for restaurant in restaurants:
         if restaurant['name'] == restaurant_name:
-            map = folium.Map(location=[restaurant['coordinates']['latitude'], restaurant['coordinates']['longitude']], zoom_start=11)
+            map = folium.Map(location=[restaurant['coordinates']['latitude'], restaurant['coordinates']['longitude']],
+                             zoom_start=11)
             for customer in restaurant['customers']:
                 latitude = customer['coordinates']['latitude']
                 longitude = customer['coordinates']['longitude']
@@ -96,6 +106,3 @@ def full_map_restaurant_customers(restaurants):
             print(f"Plik HTML dla klientów restauracji {restaurant["name"]} został wygenerowany.")
             return
     print("Klienci nie znalezieni.")
-
-
-
