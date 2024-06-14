@@ -264,3 +264,4 @@ def edit_customer(restaurants):
                     print("Klient o podanym imieniu i nazwisku nie został znaleziony.")
             return
     print("Restauracja o podanej nazwie nie została znaleziona w liście.")
+
